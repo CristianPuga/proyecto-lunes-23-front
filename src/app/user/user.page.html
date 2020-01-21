@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/login']" color="primary">
+        <ion-label>LogOut</ion-label>
+        <ion-icon name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary" padding>
+  <div text-center><h1>Usuarios</h1></div>
+  
+  <ion-grid>
+
+    <ion-row color="primary" justify-content-center style="border-bottom: 1px solid white; border-bottom-style: dashed;">
+      <ion-col >Nombre</ion-col >
+      <ion-col>Email</ion-col>
+      <ion-col>Activo?</ion-col>
+      <ion-col>Acción</ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let item of usersArray, let i = index" justify-content-center>
+
+      <ion-col>
+        {{item.nombre}}
+      </ion-col>
+      <ion-col>
+        {{item.email}}
+      </ion-col>
+      <ion-col>
+        <ion-toggle name="banana" color="light" checked="isActive(i)" (click)="updateActive(i)"></ion-toggle> 
+      </ion-col>
+      <ion-col><ion-icon name="create" (click)="updateTask(i)"></ion-icon> <ion-icon name="trash" (click)="delete(i)"></ion-icon></ion-col> 
+
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="addUser()">Añadir usuario<ion-icon name="add"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

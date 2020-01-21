@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Publications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-grid>
+    <ion-row *ngFor="let item of publicationArray">
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-img src="{{item.img}}"></ion-img>
+            <ion-card-title>{{item.titulo}}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            {{item.contenido}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
